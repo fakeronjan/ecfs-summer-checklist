@@ -574,7 +574,7 @@
       <div class="free-text">
         <label for="english-book">Book we picked</label>
         <div class="select-wrap">
-          <select id="english-book">
+          <select id="english-book" class="counted-select">
             <option value="">Choose one</option>
             <option value="Aristotle and Dante Discover the Secrets of the Universe">Aristotle and Dante Discover the Secrets of the Universe</option>
             <option value="Dragon Pearl">Dragon Pearl</option>
@@ -587,7 +587,6 @@
       </div>
 
       <div class="items">
-        <label class="check"><input type="checkbox" id="c-eng-1" class="counted"><span class="box"></span><span class="text">Picked a book from the list</span></label>
         <label class="check"><input type="checkbox" id="c-eng-2" class="counted"><span class="box"></span><span class="text">Finished reading it</span></label>
         <label class="check"><input type="checkbox" id="c-eng-3" class="counted"><span class="box"></span><span class="text">Submitted the reader survey<span class="sub"><a href="https://forms.gle/mQaiLiczpx1LBjpc8" target="_blank" rel="noopener">Google Form ↗</a></span></span></label>
       </div>
@@ -637,7 +636,7 @@
       <div class="free-text">
         <label for="history-book">Book we picked</label>
         <div class="select-wrap">
-          <select id="history-book">
+          <select id="history-book" class="counted-select">
             <option value="">Choose one</option>
             <option value="Born a Crime">Born a Crime</option>
             <option value="Now Is the Time for Running">Now Is the Time for Running</option>
@@ -653,7 +652,6 @@
       <p class="subject-intro">After reading, write <b>two paragraphs</b> on how the main character was shaped by (1) their identity - ability, age, ethnicity, gender, race, religion, sexual orientation, socioeconomic status - <b>and</b> (2) their environment - physical, cultural, political.</p>
 
       <div class="items">
-        <label class="check"><input type="checkbox" id="c-his-1" class="counted"><span class="box"></span><span class="text">Picked a book from the list</span></label>
         <label class="check"><input type="checkbox" id="c-his-2" class="counted"><span class="box"></span><span class="text">Finished reading it</span></label>
         <label class="check"><input type="checkbox" id="c-his-3" class="counted"><span class="box"></span><span class="text">Wrote the two-paragraph response (identity + environment)</span></label>
       </div>
@@ -904,7 +902,10 @@
     var total = scoredSubjects.length;
     var done = scoredSubjects.filter(function (subject) {
       var items = Array.prototype.slice.call(subject.querySelectorAll('input.counted'));
-      return items.length > 0 && items.every(function (cb) { return cb.checked; });
+      var selects = Array.prototype.slice.call(subject.querySelectorAll('select.counted-select'));
+      var checksOk = items.length > 0 && items.every(function (cb) { return cb.checked; });
+      var selectsOk = selects.every(function (s) { return s.value !== ""; });
+      return checksOk && selectsOk;
     }).length;
     progressCount.textContent = done + " / " + total;
     progressFill.style.width = (total ? (done / total * 100) : 0) + "%";
@@ -936,7 +937,7 @@
   });
 
   checkboxes.forEach(function (cb) { cb.addEventListener("change", function () { updateProgress(); updateSupplyProgress(); save(); }); });
-  textInputs.forEach(function (inp) { inp.addEventListener("input", save); inp.addEventListener("change", save); });
+  textInputs.forEach(function (inp) { inp.addEventListener("input", save); inp.addEventListener("change", function () { updateProgress(); save(); }); });
   nameInput.addEventListener("input", save);
 
   resetBtn.addEventListener("click", function () {
