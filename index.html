@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rising 7th Grade Summer Checklist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    /* ECFS navy canvas - constant, not theme-dependent */
+    --bg: #012169;
+    --accent: #fe5000;
+    --accent-ink: #ffffff;
+    --accent-on-navy: #ff8a4d;
+    --chip-bg: #ffffff;
+    --chip-ink: #0d1b33;
+    --canvas-ink: #ffffff;
+    --canvas-ink-soft: #c9d6ec;
+    --canvas-ink-faint: #7f93bc;
+    --canvas-border: rgba(255,255,255,0.28);
+    --danger: #ff8f84;
+    --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --font-serif: ui-serif, "New York", Charter, "Iowan Old Style", Georgia, "Times New Roman", serif;
+    --font-ui: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+    /* card surface - light */
+    --surface: #ffffff;
+    --surface-alt: #e4ecf7;
+    --surface-alt-ink: #2a3f66;
+    --ink: #0d1b33;
+    --ink-soft: #48557a;
+    --ink-faint: #8994ac;
+    --border: #dbe3f0;
+    --accent-text: #c93e00;
+    --accent-soft: #ffe4d6;
+    --highlight: #ffe4d6;
+    --highlight-ink: #8a2f00;
+    --shadow: 0 1px 0 rgba(13,27,51,0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface: #14306b;
+      --surface-alt: #0c2050;
+      --surface-alt-ink: #b7c6e6;
+      --ink: #ffffff;
+      --ink-soft: #c9d6ec;
+      --ink-faint: #8798bd;
+      --border: #2c437c;
+      --accent-text: #ff9a5c;
+      --accent-soft: #4a2a16;
+      --highlight: #4a2a16;
+      --highlight-ink: #ffc79c;
+      --shadow: 0 1px 0 rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --surface: #14306b; --surface-alt: #0c2050; --surface-alt-ink: #b7c6e6;
+    --ink: #ffffff; --ink-soft: #c9d6ec; --ink-faint: #8798bd;
+    --border: #2c437c; --accent-text: #ff9a5c; --accent-soft: #4a2a16;
+    --highlight: #4a2a16; --highlight-ink: #ffc79c;
+    --shadow: 0 1px 0 rgba(0,0,0,0.35);
+  }
+  :root[data-theme="light"] {
+    --surface: #ffffff; --surface-alt: #e4ecf7; --surface-alt-ink: #2a3f66;
+    --ink: #0d1b33; --ink-soft: #48557a; --ink-faint: #8994ac;
+    --border: #dbe3f0; --accent-text: #c93e00; --accent-soft: #ffe4d6;
+    --highlight: #ffe4d6; --highlight-ink: #8a2f00;
+    --shadow: 0 1px 0 rgba(13,27,51,0.06);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  a { color: var(--accent-text); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  /* ---------- cover (sits directly on the navy canvas) ---------- */
+  .cover {
+    padding: 40px 0 28px;
+    border-bottom: 3px solid var(--canvas-border);
+    position: relative;
+  }
+  .cover-tab {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--chip-ink);
+    background: var(--chip-bg);
+    padding: 5px 14px 6px;
+    clip-path: polygon(0 0, 100% 0, 93% 100%, 7% 100%);
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: clamp(34px, 5.5vw, 46px);
+    letter-spacing: -0.01em;
+    color: var(--canvas-ink);
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+  .cover-sub {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--canvas-ink-soft);
+    font-size: 18px;
+    margin: 0 0 26px;
+  }
+  .cover-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+    align-items: flex-end;
+  }
+  .name-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1 1 220px;
+  }
+  .field-label {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--canvas-ink-faint);
+  }
+  #student-name {
+    font-family: var(--font-serif);
+    font-size: 21px;
+    border: none;
+    border-bottom: 1.5px dashed var(--canvas-ink-faint);
+    background: transparent;
+    color: var(--canvas-ink);
+    padding: 2px 0 6px;
+    outline: none;
+  }
+  #student-name::placeholder { color: var(--canvas-ink-faint); }
+  #student-name:focus { border-bottom-color: var(--accent); }
+
+  .progress-wrap { flex: 1 1 260px; }
+  .progress-label {
+    font-family: var(--font-ui);
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--canvas-ink-soft);
+    margin-bottom: 7px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .progress-label #progress-count { font-family: var(--font-mono); color: var(--canvas-ink); font-variant-numeric: tabular-nums; }
+  .progress-track {
+    height: 10px;
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid var(--canvas-border);
+    position: relative;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: repeating-linear-gradient(45deg, var(--accent), var(--accent) 8px, color-mix(in srgb, var(--accent) 82%, black 14%) 8px, color-mix(in srgb, var(--accent) 82%, black 14%) 16px);
+    transition: width 0.35s ease;
+  }
+  @media (prefers-reduced-motion: reduce) { .progress-fill { transition: none; } }
+
+  /* ---------- tabs (on navy canvas) ---------- */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    padding: 9px 18px;
+    border: 1.5px solid var(--canvas-border);
+    background: transparent;
+    color: var(--canvas-ink-soft);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .tab-btn:hover { border-color: var(--canvas-ink-soft); color: var(--canvas-ink); }
+  .tab-btn.active { background: var(--chip-bg); color: var(--chip-ink); border-color: var(--chip-bg); }
+  .tab-panel[hidden] { display: none; }
+
+  .supply-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 2px 2px 18px;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--canvas-ink-soft);
+  }
+  .supply-progress .count { font-family: var(--font-mono); color: var(--canvas-ink); font-variant-numeric: tabular-nums; }
+  .supply-progress .bar {
+    flex: 1;
+    max-width: 160px;
+    height: 6px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid var(--canvas-border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .supply-progress .bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  @media (prefers-reduced-motion: reduce) { .supply-progress .bar-fill { transition: none; } }
+
+  /* ---------- quick jump (on navy canvas) ---------- */
+  .jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    padding: 16px 0 6px;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    font-size: 14.5px;
+  }
+  .jump a { color: var(--canvas-ink-soft); text-decoration: none; border-bottom: 1px solid var(--canvas-border); }
+  .jump a:hover { color: var(--accent-on-navy); border-bottom-color: var(--accent-on-navy); }
+
+  /* ---------- groups (tab sits on navy canvas, note too) ---------- */
+  .group { margin-top: 40px; }
+  .group-tab {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--chip-ink);
+    background: var(--chip-bg);
+    display: inline-block;
+    padding: 8px 18px 9px;
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+    margin: 0 0 -1px 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .group-note {
+    font-family: var(--font-serif);
+    font-size: 16.5px;
+    color: var(--canvas-ink-soft);
+    margin: 10px 0 16px 2px;
+    max-width: 60ch;
+  }
+  .subject-list { margin-top: 28px; }
+
+  /* ---------- subject card ---------- */
+  .subject {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    padding: 28px 30px 26px;
+    margin-bottom: 22px;
+  }
+  .subject-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .subject-title {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 23px;
+    letter-spacing: 0.01em;
+  }
+  .subject-meta {
+    font-family: var(--font-ui);
+    font-size: 13.5px;
+    color: var(--ink-faint);
+  }
+  .subject-meta a { color: var(--ink-faint); }
+  .subject-intro {
+    font-family: var(--font-serif);
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin: 6px 0 16px;
+    max-width: 60ch;
+  }
+  .subject.optional { background: color-mix(in srgb, var(--surface) 92%, var(--surface-alt) 8%); }
+  .optional-flag {
+    font-family: var(--font-ui);
+    font-weight: 600;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    border: 1px solid var(--border);
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+
+  /* ---------- checklist items ---------- */
+  .items { display: flex; flex-direction: column; gap: 2px; }
+  .check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 4px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .check:hover { background: color-mix(in srgb, var(--accent-soft) 55%, transparent); }
+  .check input { position: absolute; opacity: 0; width: 26px; height: 26px; margin: 0; }
+  .box {
+    flex: none;
+    width: 26px; height: 26px;
+    border: 2px solid var(--ink-faint);
+    background: var(--surface);
+    margin-top: 1px;
+    position: relative;
+    transform: rotate(-0.6deg);
+  }
+  .check:nth-child(even) .box { transform: rotate(0.7deg); }
+  .check input:checked ~ .box {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .check input:checked ~ .box::after {
+    content: "";
+    position: absolute;
+    left: 6px; top: 9px;
+    width: 7px; height: 13px;
+    border-right: 2.5px solid var(--accent-ink);
+    border-bottom: 2.5px solid var(--accent-ink);
+    transform: rotate(40deg);
+  }
+  .check input:focus-visible ~ .box { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .text {
+    font-size: 17px;
+    padding-top: 2px;
+  }
+  .check input:checked ~ .text {
+    background: linear-gradient(to bottom, transparent 62%, color-mix(in srgb, var(--highlight) 75%, transparent) 62%);
+    color: var(--ink-soft);
+  }
+  .text .sub { display: block; font-family: var(--font-ui); font-size: 14px; color: var(--ink-faint); margin-top: 3px; }
+  .text a { font-size: 15px; }
+
+  details.booklist {
+    margin: 6px 4px 14px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: color-mix(in srgb, var(--surface) 97%, var(--ink) 3%);
+  }
+  details.booklist summary {
+    font-family: var(--font-ui);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    padding: 10px 14px;
+    cursor: pointer;
+    color: var(--accent-text);
+    list-style: none;
+  }
+  details.booklist summary::-webkit-details-marker { display: none; }
+  details.booklist summary::before { content: "▸ "; }
+  details.booklist[open] summary::before { content: "▾ "; }
+  .book-list { padding: 2px 16px 14px; display: flex; flex-direction: column; gap: 12px; }
+  .book {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    padding-left: 12px;
+    border-left: 2px solid var(--border);
+  }
+  .book b { font-family: var(--font-ui); font-weight: 700; font-size: 16px; }
+  .book .tag { font-family: var(--font-ui); font-weight: 600; font-size: 12px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .free-text {
+    margin: 4px 4px 14px;
+  }
+  .free-text label {
+    display: block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 5px;
+  }
+  .free-text input[type="text"] {
+    width: 100%;
+    font-family: var(--font-serif);
+    font-size: 17px;
+    border: none;
+    border-bottom: 1.5px dashed var(--border);
+    background: transparent;
+    color: var(--ink);
+    padding: 4px 2px 8px;
+    outline: none;
+  }
+  .free-text input[type="text"]:focus { border-bottom-color: var(--accent); }
+
+  .select-wrap { position: relative; }
+  .select-wrap::after {
+    content: "▾";
+    position: absolute;
+    right: 6px;
+    top: 8px;
+    font-size: 14px;
+    color: var(--ink-faint);
+    pointer-events: none;
+  }
+  .free-text select {
+    width: 100%;
+    font-family: var(--font-serif);
+    font-size: 17px;
+    border: none;
+    border-bottom: 1.5px dashed var(--border);
+    background: transparent;
+    color: var(--ink);
+    padding: 4px 26px 8px 2px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+  }
+  .free-text select:invalid,
+  .free-text select:has(option:checked[value=""]) { color: var(--ink-faint); }
+  .free-text select:focus { border-bottom-color: var(--accent); }
+
+  .quote-block {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px 16px;
+    margin: 4px 4px 16px;
+  }
+  .quote-block cite { display: block; font-style: normal; font-family: var(--font-ui); font-size: 13px; color: var(--ink-faint); margin-top: 6px; }
+
+  .resource-links {
+    display: flex; flex-wrap: wrap; gap: 8px 18px;
+    font-family: var(--font-ui); font-weight: 600; font-size: 14.5px;
+    margin: 4px 4px 4px;
+  }
+
+  .supply-groups { display: flex; flex-direction: column; gap: 18px; }
+  .supply-sub-label {
+    font-family: var(--font-ui); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-faint); margin: 4px 4px 2px;
+  }
+  .lang-picker {
+    display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 4px 14px;
+  }
+  .lang-picker button {
+    font-family: var(--font-ui); font-weight: 600; font-size: 14.5px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--ink-soft);
+    padding: 6px 12px;
+    border-radius: 14px;
+    cursor: pointer;
+  }
+  .lang-picker button.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .lang-block { display: none; }
+  .lang-block.active { display: block; }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1.5px solid var(--canvas-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--canvas-ink-faint);
+  }
+  footer .saved { font-family: var(--font-mono); color: var(--canvas-ink-soft); font-variant-numeric: tabular-nums; }
+  #reset-btn {
+    font-family: var(--font-ui);
+    font-weight: 600;
+    font-size: 13px;
+    padding: 7px 14px;
+    color: var(--danger);
+    background: none;
+    border: 1px solid var(--danger);
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  #reset-btn:hover { background: color-mix(in srgb, var(--danger) 12%, transparent); }
+
+  ::selection { background: var(--accent-soft); color: var(--highlight-ink); }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="cover">
+    <span class="cover-tab">Class of 2032 &middot; Rising 7th Grade</span>
+    <h1>Summer Checklist</h1>
+    <p class="cover-sub">Ethical Culture Fieldston School - everything due the first day of school, in one place.</p>
+    <div class="cover-meta">
+      <div class="name-field">
+        <span class="field-label">Student name</span>
+        <input id="student-name" type="text" placeholder="type here" autocomplete="off">
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Subjects complete</span><span id="progress-count">0 / 5</span></div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" type="button" data-tab="work" role="tab" aria-selected="true">Summer Work</button>
+      <button class="tab-btn" type="button" data-tab="supplies" role="tab" aria-selected="false">Supplies</button>
+    </div>
+  </header>
+
+  <div class="tab-panel" data-tab-panel="work">
+  <nav class="jump">
+    <a href="#english">English</a>
+    <a href="#ethics">Ethics</a>
+    <a href="#history">History</a>
+    <a href="#math">Math</a>
+    <a href="#science">Science</a>
+    <a href="#engineering">Engineering</a>
+  </nav>
+
+  <div class="subject-list">
+    <article class="subject subject-scored" id="english">
+      <div class="subject-head">
+        <span class="subject-title">English</span>
+        <span class="subject-meta">Sharan Gill &middot; <a href="mailto:sgill@ecfs.org">sgill@ecfs.org</a> &middot; <a href="https://docs.google.com/document/d/1fdHDaszeAr8I2UKOOEsrpOvbXignuaZmabSWdvzg4PE/edit?tab=t.0" target="_blank" rel="noopener">official instructions ↗</a></span>
+      </div>
+      <p class="subject-intro">Read at least one book from the list below late in the summer, so it's fresh when school starts. Then fill out a short reader survey.</p>
+
+      <details class="booklist">
+        <summary>Show the 6 books - pick one</summary>
+        <div class="book-list">
+          <div class="book"><b>Aristotle and Dante Discover the Secrets of the Universe</b> - Benjamin Alire Sáenz <span class="tag">realistic novel</span><br>Two Mexican-American boys learn who they are in the world, and to each other.</div>
+          <div class="book"><b>Dragon Pearl</b> - Yoon Ha Lee <span class="tag">sci-fi fantasy</span><br>A 13-year-old fox-shapeshifter searches for her missing brother in outer space. Rick Riordan Presents.</div>
+          <div class="book"><b>Girl in the Blue Coat</b> - Monica Hesse <span class="tag">historical mystery</span><br>Set during the Holocaust - Hanneke is pulled into the search for a missing Jewish teenager.</div>
+          <div class="book"><b>Liar &amp; Spy</b> - Rebecca Stead <span class="tag">realistic novel</span><br>Two kids in a Brooklyn apartment building start a spy club to investigate a mysterious neighbor.</div>
+          <div class="book"><b>The Testing</b> - Joelle Charbonneau <span class="tag">dystopian</span><br>Teens face a high-stakes test that challenges them physically, intellectually, and emotionally.</div>
+          <div class="book"><b>A Wizard of Earthsea</b> - Ursula K. Le Guin <span class="tag">classic fantasy</span><br>The boyhood of the wizard Sparrowhawk, in the magical land of Earthsea.</div>
+        </div>
+      </details>
+
+      <div class="free-text">
+        <label for="english-book">Book we picked</label>
+        <div class="select-wrap">
+          <select id="english-book">
+            <option value="">Choose one</option>
+            <option value="Aristotle and Dante Discover the Secrets of the Universe">Aristotle and Dante Discover the Secrets of the Universe</option>
+            <option value="Dragon Pearl">Dragon Pearl</option>
+            <option value="Girl in the Blue Coat">Girl in the Blue Coat</option>
+            <option value="Liar &amp; Spy">Liar &amp; Spy</option>
+            <option value="The Testing">The Testing</option>
+            <option value="A Wizard of Earthsea">A Wizard of Earthsea</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="items">
+        <label class="check"><input type="checkbox" id="c-eng-1" class="counted"><span class="box"></span><span class="text">Picked a book from the list</span></label>
+        <label class="check"><input type="checkbox" id="c-eng-2" class="counted"><span class="box"></span><span class="text">Finished reading it</span></label>
+        <label class="check"><input type="checkbox" id="c-eng-3" class="counted"><span class="box"></span><span class="text">Submitted the reader survey<span class="sub"><a href="https://forms.gle/mQaiLiczpx1LBjpc8" target="_blank" rel="noopener">Google Form ↗</a></span></span></label>
+      </div>
+    </article>
+
+    <article class="subject subject-scored" id="ethics">
+      <div class="subject-head">
+        <span class="subject-title">Ethics</span>
+        <span class="subject-meta">Abena Koomson-Davis &middot; <a href="mailto:akoomson-davis@ecfs.org">akoomson-davis@ecfs.org</a> &middot; <a href="https://docs.google.com/document/d/1pbW2W1YarxqRDMWhwk1nQICJkK-d-JFqlPdgpNZb7q4/edit?usp=sharing" target="_blank" rel="noopener">official instructions ↗</a></span>
+      </div>
+      <p class="subject-intro">This year's theme is empathy - how it helps build a healthy, safe, brave community.</p>
+
+      <blockquote class="quote-block">
+        "To care for anyone else enough to make their problems one's own, is ever the beginning of one's real ethical development."
+        <cite>- Felix Adler, ECFS founder</cite>
+      </blockquote>
+
+      <p class="subject-intro" style="margin-top:-6px;">Write 1-2 pages about a time someone empathized with <em>you</em> in a meaningful way - or a time you empathized with someone else - and what it changed.</p>
+
+      <div class="items">
+        <label class="check"><input type="checkbox" id="c-eth-1" class="counted"><span class="box"></span><span class="text">Read the Felix Adler quote and thought about what empathy means</span></label>
+        <label class="check"><input type="checkbox" id="c-eth-2" class="counted"><span class="box"></span><span class="text">Wrote the 1-2 page essay</span></label>
+        <label class="check"><input type="checkbox" id="c-eth-3" class="counted"><span class="box"></span><span class="text">Saved it to Google Drive, ready to share with Ethics teachers &amp; STS leaders</span></label>
+      </div>
+    </article>
+
+    <article class="subject subject-scored" id="history">
+      <div class="subject-head">
+        <span class="subject-title">History</span>
+        <span class="subject-meta">Keira Lapsley &middot; <a href="mailto:klapsley@ecfs.org">klapsley@ecfs.org</a> &middot; <a href="https://docs.google.com/document/d/1MSqbKAKSD11HGvkTdbK2ONs75lzTiPriFLRp9ZXRqI0/edit?usp=sharing" target="_blank" rel="noopener">official instructions ↗</a></span>
+      </div>
+      <p class="subject-intro">Choose one coming-of-age book set outside the US. Some cover serious, difficult material - worth reading along with your child.</p>
+
+      <details class="booklist">
+        <summary>Show the 7 books - choose one</summary>
+        <div class="book-list">
+          <div class="book"><b>Born a Crime</b> - Trevor Noah <span class="tag">South Africa</span><br>Growing up mixed-race under apartheid, when his existence was illegal.</div>
+          <div class="book"><b>Now Is the Time for Running</b> - Michael Williams <span class="tag">Zimbabwe</span><br>Deo and his brother flee their village after soldiers arrive, becoming refugees.</div>
+          <div class="book"><b>Revolution Is Not a Dinner Party</b> - Ying Chang Compestine <span class="tag">China</span><br>A doctor's daughter navigates the Cultural Revolution as her family is targeted.</div>
+          <div class="book"><b>Behind the Mountains</b> - Edwidge Danticat <span class="tag">Haiti / NYC</span><br>Celiane survives political violence in Haiti, then adjusts to a new life in Brooklyn.</div>
+          <div class="book"><b>Farewell to Manzanar</b> - Jeanne Wakatsuki Houston &amp; James D. Houston <span class="tag">US</span><br>A Japanese-American family's true story of internment during WWII.</div>
+          <div class="book"><b>The Long Season of Rain</b> - Helen S. Kim <span class="tag">Korea</span><br>Four sisters navigate their parents' friction and an orphaned boy their family takes in.</div>
+          <div class="book"><b>Chinese Cinderella</b> - Adeline Yen Mah <span class="tag">China</span><br>A memoir of an unwanted daughter's painful childhood and eventual triumph.</div>
+        </div>
+      </details>
+
+      <div class="free-text">
+        <label for="history-book">Book we picked</label>
+        <div class="select-wrap">
+          <select id="history-book">
+            <option value="">Choose one</option>
+            <option value="Born a Crime">Born a Crime</option>
+            <option value="Now Is the Time for Running">Now Is the Time for Running</option>
+            <option value="Revolution Is Not a Dinner Party">Revolution Is Not a Dinner Party</option>
+            <option value="Behind the Mountains">Behind the Mountains</option>
+            <option value="Farewell to Manzanar">Farewell to Manzanar</option>
+            <option value="The Long Season of Rain">The Long Season of Rain</option>
+            <option value="Chinese Cinderella">Chinese Cinderella</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="subject-intro">After reading, write <b>two paragraphs</b> on how the main character was shaped by (1) their identity - ability, age, ethnicity, gender, race, religion, sexual orientation, socioeconomic status - <b>and</b> (2) their environment - physical, cultural, political.</p>
+
+      <div class="items">
+        <label class="check"><input type="checkbox" id="c-his-1" class="counted"><span class="box"></span><span class="text">Picked a book from the list</span></label>
+        <label class="check"><input type="checkbox" id="c-his-2" class="counted"><span class="box"></span><span class="text">Finished reading it</span></label>
+        <label class="check"><input type="checkbox" id="c-his-3" class="counted"><span class="box"></span><span class="text">Wrote the two-paragraph response (identity + environment)</span></label>
+      </div>
+    </article>
+
+    <article class="subject subject-scored" id="math">
+      <div class="subject-head">
+        <span class="subject-title">Math</span>
+        <span class="subject-meta">Annette Cantarella &middot; <a href="mailto:acantarella@ecfs.org">acantarella@ecfs.org</a></span>
+      </div>
+      <p class="subject-intro">Self-directed, not a worksheet packet - go through all 8 skills together, and actually practice the ones that aren't solid yet.</p>
+      <p class="subject-meta">Prefer a printed workbook? <a href="https://www.summerskills.com/product/summer-math-skills-sharpener-7th-grade/" target="_blank" rel="noopener">optional workbook to order ↗</a></p>
+
+      <details class="booklist">
+        <summary>Show the 8 skills - videos + practice worksheets</summary>
+        <div class="book-list">
+          <div class="book"><b>Multiplication tables</b> (up to 12) - <a href="https://math-drills.com/multiplication/multiplication_facts_to_144_no01_001.1675735301.pdf" target="_blank" rel="noopener">worksheet ↗</a> &middot; <a href="https://www.timestables.com/" target="_blank" rel="noopener">practice game ↗</a></div>
+          <div class="book"><b>Adding integers</b> - <a href="https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-negative-numbers-add-and-subtract/cc-7th-add-and-sub-integers/v/adding-and-subtracting-negative-number-examples" target="_blank" rel="noopener">video ↗</a> &middot; <a href="https://www.math-drills.com/integers/integers_01addition_01mixed_02range12_01questions025_04noparentheses_001.1694538887.pdf" target="_blank" rel="noopener">worksheet ↗</a></div>
+          <div class="book"><b>Subtracting integers</b> - <a href="https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-negative-numbers-add-and-subtract/cc-7th-add-and-sub-integers/v/adding-and-subtracting-negative-number-examples" target="_blank" rel="noopener">video ↗</a> &middot; <a href="https://math-drills.com/integers/integers_subtraction_negative_parentheses_-15to15_001.1694693661.pdf" target="_blank" rel="noopener">worksheet ↗</a></div>
+          <div class="book"><b>Multiplying / dividing integers</b> - multiply: <a href="https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-negative-numbers-multiply-and-divide/cc-7th-mult-div-negatives/v/multiplying-positive-and-negative-numbers" target="_blank" rel="noopener">video ↗</a> &middot; divide: <a href="https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-negative-numbers-multiply-and-divide/cc-7th-mult-div-negatives/v/dividing-positive-and-negative-numbers" target="_blank" rel="noopener">video ↗</a> &middot; <a href="https://math-drills.com/integers/integers_06multdiv_01mixed_02range12_02questions050_001.1694118997.pdf" target="_blank" rel="noopener">worksheet ↗</a></div>
+          <div class="book"><b>Order of operations, positives</b> - <a href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-arithmetic-operations/cc-6th-order-of-operations/v/more-complicated-order-of-operations-example" target="_blank" rel="noopener">video ↗</a> &middot; <a href="https://math-drills.com/orderofoperations/ooo_integers_foursteps_positive_pemdas_001.1675735326.pdf" target="_blank" rel="noopener">worksheet ↗</a></div>
+          <div class="book"><b>Order of operations, negatives</b> - <a href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-arithmetic-operations/cc-6th-order-of-operations/v/more-complicated-order-of-operations-example" target="_blank" rel="noopener">video ↗</a> &middot; <a href="https://math-drills.com/orderofoperations/ooo_integers_foursteps_negative_pemdas_001.1635097792.pdf" target="_blank" rel="noopener">worksheet ↗</a></div>
+          <div class="book"><b>Adding / subtracting fractions</b>, like denominators - add: <a href="https://www.khanacademy.org/math/4th-grade-math-ny-next-gen/x21f099f86cc76c0d:imp-fractions-2/x21f099f86cc76c0d:imp-adding-and-subtracting-fractions-with-like-denominators/v/adding-fractions-with-like-denominators" target="_blank" rel="noopener">video ↗</a> &middot; <a href="https://www.effortlessmath.com/wp-content/uploads/2020/04/Add-Fractions-with-Like-Denominators.pdf" target="_blank" rel="noopener">worksheet ↗</a> &middot; subtract: <a href="https://www.khanacademy.org/math/4th-grade-math-ny-next-gen/x21f099f86cc76c0d:imp-fractions-2/x21f099f86cc76c0d:imp-adding-and-subtracting-fractions-with-like-denominators/v/subtracting-fractions" target="_blank" rel="noopener">video ↗</a> &middot; <a href="https://www.effortlessmath.com/wp-content/uploads/2020/04/Subtract-Fractions-with-Like-Denominators.pdf" target="_blank" rel="noopener">worksheet ↗</a></div>
+          <div class="book"><b>Multiplying / dividing fractions</b> - multiply: <a href="https://www.khanacademy.org/math/arithmetic/x18ca194a:multiply-fractions/x18ca194a:multiplying-fractions/v/multiplying-fractions" target="_blank" rel="noopener">video ↗</a> &middot; divide: <a href="https://www.khanacademy.org/math/arithmetic/x18ca194a:divide-fractions/x18ca194a:dividing-fractions-by-fractions/v/conceptual-understanding-of-dividing-fractions-by-fractions" target="_blank" rel="noopener">video ↗</a> &middot; <a href="https://www.effortlessmath.com/wp-content/uploads/2019/09/Multiplying-and-Dividing-Fractions.pdf" target="_blank" rel="noopener">worksheet ↗</a></div>
+        </div>
+      </details>
+
+      <div class="items">
+        <label class="check"><input type="checkbox" id="c-math-9" class="counted"><span class="box"></span><span class="text">Signed the official tracking checklist and packed it<span class="sub">the real deliverable - parent + student rate each skill together (Mastered / Progressing / Needs support), sign it, and pack it for day one. <a href="https://docs.google.com/document/d/1PM_Rf4ekfaQxITPveTf8dHxKUx6TEwHQXlBA_MFnLX4/edit?usp=sharing" target="_blank" rel="noopener">Get the checklist ↗</a></span></span></label>
+      </div>
+    </article>
+
+    <article class="subject subject-scored" id="science">
+      <div class="subject-head">
+        <span class="subject-title">Science</span>
+        <span class="subject-meta">Ms. Hull &amp; Mr. Medrano &middot; <a href="mailto:chull@ecfs.org">chull@ecfs.org</a> &middot; <a href="https://docs.google.com/document/d/1UCYVd2v8PspSEbHr-ZmDpUgQULlJedapBAdjkcwiI7U/edit?usp=sharing" target="_blank" rel="noopener">official instructions ↗</a></span>
+      </div>
+      <p class="subject-intro">Pick an organism or a phenomenon that's genuinely interesting, find one current article about it, and write it up in a Google Doc to share with the class in September.</p>
+
+      <div class="free-text">
+        <label for="science-topic">Our organism or phenomenon</label>
+        <input type="text" id="science-topic" placeholder="-">
+      </div>
+      <div class="free-text">
+        <label for="science-article">Article link</label>
+        <input type="text" id="science-article" placeholder="-">
+      </div>
+
+      <div class="resource-links">
+        <a href="https://www.nytimes.com/section/science" target="_blank" rel="noopener">NYT Science ↗</a>
+        <a href="https://www.sciencedaily.com/news/top/science/" target="_blank" rel="noopener">Science Daily ↗</a>
+        <a href="https://www.sciencenewsforstudents.org/" target="_blank" rel="noopener">Science News for Students ↗</a>
+        <a href="https://www.popsci.com/science/" target="_blank" rel="noopener">Popular Science ↗</a>
+        <a href="https://www.sciencedaily.com/releases/2026/02/260212025554.htm" target="_blank" rel="noopener">see an example article ↗</a>
+      </div>
+
+      <div class="items">
+        <label class="check"><input type="checkbox" id="c-sci-1" class="counted"><span class="box"></span><span class="text">Chose an organism or phenomenon</span></label>
+        <label class="check"><input type="checkbox" id="c-sci-2" class="counted"><span class="box"></span><span class="text">Found one current article about it (June-August, if possible)</span></label>
+        <label class="check"><input type="checkbox" id="c-sci-3" class="counted"><span class="box"></span><span class="text">Created the Google Doc<span class="sub">named LastNameFirstNameCurrentEventSummer2026</span></span></label>
+        <label class="check"><input type="checkbox" id="c-sci-4" class="counted"><span class="box"></span><span class="text">Answered all 5 questions in full sentences<span class="sub">what/where it's from &middot; how it interacts or affects life on Earth &middot; who studies it &middot; why it matters</span></span></label>
+        <label class="check"><input type="checkbox" id="c-sci-5" class="counted"><span class="box"></span><span class="text">Saved it in Google Drive, ready to share in September</span></label>
+      </div>
+    </article>
+
+    <article class="subject optional" id="engineering">
+      <div class="subject-head">
+        <span class="subject-title">Engineering</span>
+        <span class="optional-flag">optional</span>
+      </div>
+      <p class="subject-intro">Only for students who signed up for the Engineering elective - no assignment is due. Just a reading list on design, computer science, and engineering/STEM for anyone curious.</p>
+      <p class="subject-meta"><a href="https://sites.google.com/ecfs.org/mrbaglio/for-families/book-suggestions" target="_blank" rel="noopener">See the optional book list ↗</a> &middot; John Baglio &amp; Mel De Sole</p>
+    </article>
+  </div>
+  </div>
+
+  <div class="tab-panel" data-tab-panel="supplies" hidden>
+  <!-- ============ GET READY ============ -->
+  <section class="group" data-group="ready" style="margin-top:24px;">
+    <h2 class="group-tab">Get Ready</h2>
+    <p class="group-note">Books and all required binders are provided by the school. This is what to gather beforehand.</p>
+    <div class="supply-progress">
+      <span>Packed</span>
+      <div class="bar"><div class="bar-fill" id="supply-fill"></div></div>
+      <span class="count" id="supply-count">0 / 0</span>
+    </div>
+
+    <article class="subject" id="supplies">
+      <div class="subject-head">
+        <span class="subject-title">Supplies</span>
+      </div>
+
+      <div class="supply-groups">
+        <div>
+          <div class="supply-sub-label">Every subject</div>
+          <div class="items">
+            <label class="check"><input type="checkbox" id="c-sup-1" class="supply-counted"><span class="box"></span><span class="text">Backpack</span></label>
+            <label class="check"><input type="checkbox" id="c-sup-2" class="supply-counted"><span class="box"></span><span class="text">Pencil pouch</span></label>
+            <label class="check"><input type="checkbox" id="c-sup-3" class="supply-counted"><span class="box"></span><span class="text">20 pencils</span></label>
+            <label class="check"><input type="checkbox" id="c-sup-4" class="supply-counted"><span class="box"></span><span class="text">20 pens</span></label>
+            <label class="check"><input type="checkbox" id="c-sup-5" class="supply-counted"><span class="box"></span><span class="text">10 highlighters</span></label>
+            <label class="check"><input type="checkbox" id="c-sup-6" class="supply-counted"><span class="box"></span><span class="text">Ruler</span></label>
+            <label class="check"><input type="checkbox" id="c-sup-7" class="supply-counted"><span class="box"></span><span class="text">Index cards, 3x5</span></label>
+          </div>
+        </div>
+
+        <div>
+          <div class="supply-sub-label">Math</div>
+          <div class="items">
+            <label class="check"><input type="checkbox" id="c-sup-8" class="supply-counted"><span class="box"></span><span class="text">Composition notebook</span></label>
+            <label class="check"><input type="checkbox" id="c-sup-9" class="supply-counted"><span class="box"></span><span class="text">Pocket folder</span></label>
+            <label class="check"><input type="checkbox" id="c-sup-10" class="supply-counted"><span class="box"></span><span class="text">Calculator<span class="sub">TI-30 or similar</span></span></label>
+          </div>
+        </div>
+
+        <div>
+          <div class="supply-sub-label">History</div>
+          <div class="items">
+            <label class="check"><input type="checkbox" id="c-sup-11" class="supply-counted"><span class="box"></span><span class="text">Composition notebook</span></label>
+            <label class="check"><input type="checkbox" id="c-sup-12" class="supply-counted"><span class="box"></span><span class="text">Pocket folder</span></label>
+          </div>
+        </div>
+
+        <div>
+          <div class="supply-sub-label">Science</div>
+          <div class="items">
+            <label class="check"><input type="checkbox" id="c-sup-13" class="supply-counted"><span class="box"></span><span class="text">Composition notebook</span></label>
+            <label class="check"><input type="checkbox" id="c-sup-14" class="supply-counted"><span class="box"></span><span class="text">Pocket folder</span></label>
+            <label class="check"><input type="checkbox" id="c-sup-15" class="supply-counted"><span class="box"></span><span class="text">Pack of index cards</span></label>
+          </div>
+        </div>
+
+        <div>
+          <div class="supply-sub-label">Engineering</div>
+          <div class="items">
+            <label class="check"><input type="checkbox" id="c-sup-16" class="supply-counted"><span class="box"></span><span class="text">Mechanical pencil</span></label>
+            <label class="check"><input type="checkbox" id="c-sup-17" class="supply-counted"><span class="box"></span><span class="text">Pen</span></label>
+          </div>
+        </div>
+
+        <div>
+          <div class="supply-sub-label">Language - pick your child's class (not counted toward progress above)</div>
+          <div class="lang-picker" id="lang-picker">
+            <button type="button" data-lang="mandarin">Mandarin</button>
+            <button type="button" data-lang="french">French</button>
+            <button type="button" data-lang="latin">Latin</button>
+            <button type="button" data-lang="spanish">Spanish</button>
+          </div>
+          <div class="lang-block" data-lang="mandarin">
+            <div class="items">
+              <label class="check"><input type="checkbox" id="c-lang-m1"><span class="box"></span><span class="text">Composition notebook</span></label>
+              <label class="check"><input type="checkbox" id="c-lang-m2"><span class="box"></span><span class="text">Pocket folder</span></label>
+            </div>
+          </div>
+          <div class="lang-block" data-lang="french">
+            <div class="items">
+              <label class="check"><input type="checkbox" id="c-lang-f1"><span class="box"></span><span class="text">Composition notebook</span></label>
+              <label class="check"><input type="checkbox" id="c-lang-f2"><span class="box"></span><span class="text">Pocket folder</span></label>
+            </div>
+          </div>
+          <div class="lang-block" data-lang="latin">
+            <div class="items">
+              <label class="check"><input type="checkbox" id="c-lang-l1"><span class="box"></span><span class="text">Composition notebook</span></label>
+              <label class="check"><input type="checkbox" id="c-lang-l2"><span class="box"></span><span class="text">Pocket folder</span></label>
+              <label class="check"><input type="checkbox" id="c-lang-l3"><span class="box"></span><span class="text">Index cards</span></label>
+            </div>
+          </div>
+          <div class="lang-block" data-lang="spanish">
+            <div class="items">
+              <label class="check"><input type="checkbox" id="c-lang-s1"><span class="box"></span><span class="text">1.5" binder<span class="sub">stays in the Spanish classroom</span></span></label>
+              <label class="check"><input type="checkbox" id="c-lang-s2"><span class="box"></span><span class="text">Loose-leaf paper</span></label>
+              <label class="check"><input type="checkbox" id="c-lang-s3"><span class="box"></span><span class="text">Binder pocket folder</span></label>
+              <label class="check"><input type="checkbox" id="c-lang-s4"><span class="box"></span><span class="text">Binder pencil pouch</span></label>
+              <label class="check"><input type="checkbox" id="c-lang-s5"><span class="box"></span><span class="text">Box of #2 pencils</span></label>
+              <label class="check"><input type="checkbox" id="c-lang-s6"><span class="box"></span><span class="text">One yellow highlighter</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="resource-links" style="margin-top:2px;">
+            <a href="https://docs.google.com/document/d/1ecJtVql2t_fhPk02O5LgVvq5KS85rS5DU3ssHdygKKc/edit?tab=t.0" target="_blank" rel="noopener">PE attire guidelines ↗</a>
+            <a href="https://docs.google.com/document/d/1Ct4grJ708ktfSKdQLRIngwz_tVuB4VvTkiqp5QCc7Xk/edit?tab=t.0" target="_blank" rel="noopener">Music course supplies ↗</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+  </div>
+
+  <footer>
+    <span>Built for the Class of 2032 from the school's summer letter - not an official ECFS page, saved on this device only.</span>
+    <span class="saved" id="saved-at">not saved yet</span>
+    <button id="reset-btn" type="button">Clear all checks</button>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var STORAGE_KEY = "ecfs7-checklist-v1";
+  var nameInput = document.getElementById("student-name");
+  var savedAt = document.getElementById("saved-at");
+  var progressCount = document.getElementById("progress-count");
+  var progressFill = document.getElementById("progress-fill");
+  var supplyCount = document.getElementById("supply-count");
+  var supplyFill = document.getElementById("supply-fill");
+  var resetBtn = document.getElementById("reset-btn");
+
+  var checkboxes = Array.prototype.slice.call(document.querySelectorAll('input[type="checkbox"]'));
+  var textInputs = Array.prototype.slice.call(document.querySelectorAll('.free-text input[type="text"], .free-text select'));
+  var scoredSubjects = Array.prototype.slice.call(document.querySelectorAll('.subject-scored'));
+
+  function load() {
+    var raw;
+    try { raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch (e) { raw = {}; }
+    if (raw.name) nameInput.value = raw.name;
+    checkboxes.forEach(function (cb) {
+      if (raw.checks && raw.checks[cb.id]) cb.checked = true;
+    });
+    textInputs.forEach(function (inp) {
+      if (raw.texts && raw.texts[inp.id]) inp.value = raw.texts[inp.id];
+    });
+    if (raw.lang) setLang(raw.lang, false);
+    if (raw.savedAt) stampSaved(raw.savedAt);
+  }
+
+  function save() {
+    var checks = {};
+    checkboxes.forEach(function (cb) { if (cb.checked) checks[cb.id] = true; });
+    var texts = {};
+    textInputs.forEach(function (inp) { if (inp.value) texts[inp.id] = inp.value; });
+    var now = new Date().toISOString();
+    var data = { name: nameInput.value, checks: checks, texts: texts, lang: currentLang, savedAt: now };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    stampSaved(now);
+  }
+
+  function stampSaved(iso) {
+    var d = new Date(iso);
+    var h = d.getHours(), m = d.getMinutes();
+    var ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12; if (h === 0) h = 12;
+    var mm = m < 10 ? "0" + m : m;
+    savedAt.textContent = "saved " + h + ":" + mm + " " + ampm;
+  }
+
+  function updateProgress() {
+    var total = scoredSubjects.length;
+    var done = scoredSubjects.filter(function (subject) {
+      var items = Array.prototype.slice.call(subject.querySelectorAll('input.counted'));
+      return items.length > 0 && items.every(function (cb) { return cb.checked; });
+    }).length;
+    progressCount.textContent = done + " / " + total;
+    progressFill.style.width = (total ? (done / total * 100) : 0) + "%";
+  }
+
+  function updateSupplyProgress() {
+    var items = Array.prototype.slice.call(document.querySelectorAll('input.supply-counted'));
+    var done = items.filter(function (cb) { return cb.checked; }).length;
+    var total = items.length;
+    supplyCount.textContent = done + " / " + total;
+    supplyFill.style.width = (total ? (done / total * 100) : 0) + "%";
+  }
+
+  var currentLang = null;
+  function setLang(lang, persist) {
+    currentLang = lang;
+    document.querySelectorAll(".lang-block").forEach(function (b) {
+      b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+    });
+    document.querySelectorAll("#lang-picker button").forEach(function (b) {
+      b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+    });
+    if (persist) save();
+  }
+  document.getElementById("lang-picker").addEventListener("click", function (e) {
+    var btn = e.target.closest("button");
+    if (!btn) return;
+    setLang(btn.getAttribute("data-lang"), true);
+  });
+
+  checkboxes.forEach(function (cb) { cb.addEventListener("change", function () { updateProgress(); updateSupplyProgress(); save(); }); });
+  textInputs.forEach(function (inp) { inp.addEventListener("input", save); inp.addEventListener("change", save); });
+  nameInput.addEventListener("input", save);
+
+  resetBtn.addEventListener("click", function () {
+    if (!confirm("Clear every checkmark on this device? This can't be undone.")) return;
+    checkboxes.forEach(function (cb) { cb.checked = false; });
+    updateProgress();
+    updateSupplyProgress();
+    save();
+  });
+
+  var tabBtns = Array.prototype.slice.call(document.querySelectorAll(".tab-btn"));
+  function setTab(tab) {
+    tabBtns.forEach(function (btn) {
+      var active = btn.getAttribute("data-tab") === tab;
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-selected", active ? "true" : "false");
+    });
+    document.querySelectorAll(".tab-panel").forEach(function (panel) {
+      panel.hidden = panel.getAttribute("data-tab-panel") !== tab;
+    });
+  }
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () { setTab(btn.getAttribute("data-tab")); });
+  });
+
+  load();
+  updateProgress();
+  updateSupplyProgress();
+})();
+</script>
+</body>
+</html>
