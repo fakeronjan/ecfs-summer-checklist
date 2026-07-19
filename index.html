@@ -485,9 +485,9 @@
   .lang-block { display: none; }
   .lang-block.active { display: block; }
 
-  footer {
-    margin-top: 48px;
-    padding-top: 20px;
+  .save-bar {
+    margin-top: 22px;
+    padding-top: 18px;
     border-top: 1.5px solid var(--canvas-border);
     display: flex;
     justify-content: space-between;
@@ -498,7 +498,7 @@
     font-size: 13px;
     color: var(--canvas-ink-faint);
   }
-  footer .saved { font-family: var(--font-mono); color: var(--canvas-ink-soft); font-variant-numeric: tabular-nums; }
+  .save-bar .saved { font-family: var(--font-mono); color: var(--canvas-ink-soft); font-variant-numeric: tabular-nums; }
   #reset-btn {
     font-family: var(--font-ui);
     font-weight: 600;
@@ -535,6 +535,11 @@
     <div class="tabs" role="tablist">
       <button class="tab-btn active" type="button" data-tab="work" role="tab" aria-selected="true">Summer Work</button>
       <button class="tab-btn" type="button" data-tab="supplies" role="tab" aria-selected="false">Supplies</button>
+    </div>
+    <div class="save-bar">
+      <span>This tracker saves automatically on this device &middot; not an official ECFS page</span>
+      <span class="saved" id="saved-at">not saved yet</span>
+      <button id="reset-btn" type="button">Clear all checks</button>
     </div>
   </header>
 
@@ -615,7 +620,7 @@
         <span class="subject-title">History</span>
         <span class="subject-meta">Keira Lapsley &middot; <a href="mailto:klapsley@ecfs.org">klapsley@ecfs.org</a> &middot; <a href="https://docs.google.com/document/d/1MSqbKAKSD11HGvkTdbK2ONs75lzTiPriFLRp9ZXRqI0/edit?usp=sharing" target="_blank" rel="noopener">official instructions ↗</a></span>
       </div>
-      <p class="subject-intro">Choose one coming-of-age book set outside the US. Some cover serious, difficult material - worth reading along with your child.</p>
+      <p class="subject-intro">Choose one coming-of-age book set outside the US. Some cover serious, difficult material - worth reading with your family.</p>
 
       <details class="booklist">
         <summary>Show the 7 books - choose one</summary>
@@ -790,7 +795,7 @@
         </div>
 
         <div>
-          <div class="supply-sub-label">Language - pick your child's class (not counted toward progress above)</div>
+          <div class="supply-sub-label">Language - pick the class (not counted toward progress above)</div>
           <div class="lang-picker" id="lang-picker">
             <button type="button" data-lang="mandarin">Mandarin</button>
             <button type="button" data-lang="french">French</button>
@@ -839,11 +844,6 @@
   </section>
   </div>
 
-  <footer>
-    <span>Built for the Class of 2032 from the school's summer letter - not an official ECFS page, saved on this device only.</span>
-    <span class="saved" id="saved-at">not saved yet</span>
-    <button id="reset-btn" type="button">Clear all checks</button>
-  </footer>
 </div>
 
 <script>
