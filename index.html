@@ -81,6 +81,10 @@
     margin: 0 auto;
     padding: 0 20px 80px;
   }
+  @media (max-width: 600px) {
+    .page { padding: 0 14px 60px; }
+    .subject { padding: 20px 18px 20px; }
+  }
 
   a { color: var(--accent-text); text-decoration-thickness: 1px; text-underline-offset: 2px; }
   a:hover { text-decoration-thickness: 2px; }
@@ -477,7 +481,7 @@
     border: 1.5px solid var(--border);
     background: var(--surface);
     color: var(--ink-soft);
-    padding: 6px 12px;
+    padding: 11px 16px;
     border-radius: 14px;
     cursor: pointer;
   }
@@ -503,11 +507,10 @@
     font-family: var(--font-ui);
     font-weight: 600;
     font-size: 13px;
-    padding: 7px 14px;
+    padding: 11px 16px;
     color: var(--danger);
     background: none;
     border: 1px solid var(--danger);
-    padding: 5px 10px;
     border-radius: 3px;
     cursor: pointer;
   }
